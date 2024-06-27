@@ -1,0 +1,41 @@
+//greatest common divisor 
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+int main(){
+    int num1,num2;
+    cout<<"enter the numbers: ";
+    cin>>num1>>num2;
+    
+    int n1=0,n2=0;
+    vector<int> fact1,fact2;
+    for(int i=1;i<=num1;i++){
+        if(num1%i==0){
+            n1++;
+            fact1.push_back(i);
+        }
+    }
+   
+    for(int i=1;i<=num2;i++){
+        if(num2%i==0){
+            n2++;
+            fact2.push_back(i);
+        }
+    }
+    
+    bool flag = false;
+    for(int i=n1-1;i>=0;i--){
+        for(int j=n2-1;j>=0;j--){
+            if(fact1[i]==fact2[j]){
+                cout<<"HCF: "<<fact1[i]<<endl;
+                flag = true;
+                break;
+            }
+        }
+        if(flag==true){
+            break;
+        }
+    }
+}
